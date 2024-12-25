@@ -10,6 +10,7 @@ colorama.init()
 GREEN = colorama.Fore.GREEN
 YELLOW = colorama.Fore.YELLOW
 RESET_STYLES = colorama.Style.RESET_ALL
+
 def create_media_folder():
     """
         Створює папку media  в основній директорії програми edit image
@@ -18,9 +19,11 @@ def create_media_folder():
     path_media = abspath(join(__file__, "..", "..", "..", "media"))
     try:
         for dir in ['downloads', 'edits']:
+            # умова яка перевіряє наявність папки downloads або edits
             if not exists(join(path_media, dir)):
+                # Створюємо папку за вказаним шляхом, та забороняємо виводити помилки задопомогою параметру exist_ok
+                os.makedirs(join(path_media, dir), exist_ok= True)
                 print(f'\n{YELLOW}Created media folder {GREEN + dir.upper() + YELLOW}...!{RESET_STYLES}\n')
-            os.makedirs(join(path_media, dir), exist_ok= True)
     except Exception as exception:
         print(f'{colorama.Fore.RED}Error created media folder: {str(exception)}!{colorama.Style.RESET_ALL}')
     

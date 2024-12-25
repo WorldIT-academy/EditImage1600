@@ -1,12 +1,14 @@
 import customtkinter as ctk
 from ..json.read_json import read_json
-from ..tools import create_media_folder
+from ..tools import create_media_folder, create_icon
+
 # Розробляємо інструкцію App, для створення віконого десктопного додатку за цією інструкцію 
 class App(ctk.CTk):
     def __init__(self):
         ctk.CTk.__init__(self)
         
         create_media_folder()
+        create_icon(master = self)
         # Створюємо локальну змінну з типом даних словник, куди записуємо усі дані із файла config.json
         data = read_json(filename= 'config.json')
         # Створюємо властивість класу Аpp (глобальна зміна класа App), 
