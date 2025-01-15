@@ -13,6 +13,8 @@ RESET_STYLES = colorama.Style.RESET_ALL
 def create_media_folder():
     """
         Створює папку media  в основній директорії програми edit image
+        Приклад застосування: 
+        >>> create_media_folder()
     """
     # записуємо у змінну path_media абсолютний шлях у форматі str до папки media
     path_media = abspath(join(__file__, "..", "..", "..", "media"))
