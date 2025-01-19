@@ -23,21 +23,58 @@ class App(ctk.CTk):
         self.geometry(f"{self.WIDTH}x{self.HEIGHT}")
         # Задаємо заголовок нашому застосунку 
         self.title(data['title'])
+        self.resizable(False, False)
         #
         self.HEADER = App_Frame(child_master = self, 
                                 child_width = self.WIDTH, 
-                                child_height = self.HEIGHT * 0.05, 
+                                child_height = self.HEIGHT * 0.051, 
                                 child_fg_color = "#181818"
         )
-        self.HEADER.grid(row = 0, column = 0)
+        self.HEADER.place(x = 0, y =  0)
+        
 
         self.CONTENT = App_Frame(child_master= self,
                                 child_width= self.WIDTH,
                                 child_height= self.HEIGHT * 0.95,
-                                child_fg_color= "#1f1f1f"
+                                child_fg_color= "#ffffff"
         )
-        self.CONTENT.grid(row= 1, column= 0, pady= 1)
+        self.CONTENT.place(x = 0, y = self.HEIGHT * 0.05 + 1)
+        #
+        self.VERTICAL_MENU = App_Frame(child_master = self.CONTENT,
+                                    child_width = self.CONTENT._current_width * 0.05,
+                                    child_height = self.CONTENT._current_height,
+                                    child_fg_color = '#181818'
+        )
+        self.VERTICAL_MENU.place(x = 0, y = 0)
         
         
-#
+        self.EXPLORER = App_Frame(child_master= self.CONTENT,
+                                  child_width= self.CONTENT._current_width * 0.15,
+                                  child_height= self.CONTENT._current_height,
+                                  child_fg_color = "#181818"
+        )
+        self.EXPLORER.place(x = self.CONTENT._current_width * 0.05 + 1 , y= 0)
+        #
+        self.DASHBOARD = App_Frame(child_master= self.CONTENT,
+                                   child_width= self.CONTENT._current_width * 0.8,
+                                   child_height= self.CONTENT._current_height,
+                                   child_fg_color= "#ffffff"                
+        )
+        self.DASHBOARD.place(x = self.CONTENT._current_width * 0.1999 + 1, y = 0)
+        #
+        self.HEADER_DASHBOARD = App_Frame(
+            child_master = self.DASHBOARD,
+            child_width = self.DASHBOARD._current_width,
+            child_height = self.DASHBOARD._current_height * 0.03,
+            child_fg_color = '#181818'                    
+        )
+        self.HEADER_DASHBOARD.place(x = 0, y = 0)   
+        #
+        self.CONTENT_DASHBOARD = App_Frame(
+            child_master= self.DASHBOARD,
+            child_width= self.DASHBOARD._current_width,
+            child_height= self.DASHBOARD._current_height * 0.97,
+            child_fg_color= "#1f1f1f"
+        )
+        self.CONTENT_DASHBOARD.place(x=0, y=self.DASHBOARD._current_height * 0.03)
 app = App()
