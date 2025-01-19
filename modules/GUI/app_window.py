@@ -25,40 +25,45 @@ class App(ctk.CTk):
         self.title(data['title'])
         self.resizable(False, False)
         #
-        self.HEADER = App_Frame(child_master = self, 
-                                child_width = self.WIDTH, 
-                                child_height = self.HEIGHT * 0.051, 
-                                child_fg_color = "#181818"
+        self.HEADER = App_Frame(
+            child_master = self, 
+            child_width = self.WIDTH, 
+            child_height = self.HEIGHT * 0.051, 
+            child_fg_color = "#181818"
         )
-        self.HEADER.place(x = 0, y =  0)
+        self.HEADER.place(x = 0, y = 0)
         
 
-        self.CONTENT = App_Frame(child_master= self,
-                                child_width= self.WIDTH,
-                                child_height= self.HEIGHT * 0.95,
-                                child_fg_color= "#ffffff"
+        self.CONTENT = App_Frame(
+            child_master= self,
+            child_width= self.WIDTH,
+            child_height= self.HEIGHT * 0.95,
+            child_fg_color= "#ffffff"
         )
         self.CONTENT.place(x = 0, y = self.HEIGHT * 0.05 + 1)
         #
-        self.VERTICAL_MENU = App_Frame(child_master = self.CONTENT,
-                                    child_width = self.CONTENT._current_width * 0.05,
-                                    child_height = self.CONTENT._current_height,
-                                    child_fg_color = '#181818'
+        self.VERTICAL_MENU = App_Frame(
+            child_master = self.CONTENT,
+            child_width = self.CONTENT._current_width * 0.05,
+            child_height = self.CONTENT._current_height,
+            child_fg_color = '#181818'
         )
         self.VERTICAL_MENU.place(x = 0, y = 0)
         
         
-        self.EXPLORER = App_Frame(child_master= self.CONTENT,
-                                  child_width= self.CONTENT._current_width * 0.15,
-                                  child_height= self.CONTENT._current_height,
-                                  child_fg_color = "#181818"
+        self.EXPLORER = App_Frame(
+            child_master= self.CONTENT,
+            child_width= self.CONTENT._current_width * 0.15,
+            child_height= self.CONTENT._current_height,
+            child_fg_color = "#181818"
         )
         self.EXPLORER.place(x = self.CONTENT._current_width * 0.05 + 1 , y= 0)
         #
-        self.DASHBOARD = App_Frame(child_master= self.CONTENT,
-                                   child_width= self.CONTENT._current_width * 0.8,
-                                   child_height= self.CONTENT._current_height,
-                                   child_fg_color= "#ffffff"                
+        self.DASHBOARD = App_Frame(
+            child_master= self.CONTENT,
+            child_width= self.CONTENT._current_width * 0.8,
+            child_height= self.CONTENT._current_height,
+            child_fg_color= "#ffffff"                
         )
         self.DASHBOARD.place(x = self.CONTENT._current_width * 0.1999 + 1, y = 0)
         #
