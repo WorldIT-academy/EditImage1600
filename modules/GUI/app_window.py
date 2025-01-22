@@ -2,6 +2,8 @@ import customtkinter as ctk
 from ..json.read_json import read_json
 from ..tools import create_media_folder
 from .app_frames import App_Frame 
+from .app_button import AppButton
+
 # Розробляємо інструкцію App, для створення віконого десктопного додатку за цією інструкцію 
 class App(ctk.CTk):
     def __init__(self):
@@ -82,4 +84,13 @@ class App(ctk.CTk):
             child_fg_color= "#1f1f1f"
         )
         self.CONTENT_DASHBOARD.place(x=0, y=self.DASHBOARD._current_height * 0.03)
+
+        self.BUTTON_SEARCH = AppButton(
+            ch_master = self.VERTICAL_MENU,
+            icon_name = "explorer.png",
+            size = self.VERTICAL_MENU._current_width * 0.5
+        )
+        self.BUTTON_SEARCH.place(x = 20, y = 20)
+        
+        
 app = App()
