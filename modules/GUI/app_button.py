@@ -1,5 +1,5 @@
 r"""
-    ### У цьому файлі вказана інструкція (клас AppButton), яка створює кнопку у графічному інтерфейсу додатку ###
+    ### У цьому файлі вказана інструкція (клас AppButton), яка створює кнопку у графічному інтерфейсу додатку 
     
     Приклад використання:
     
@@ -25,23 +25,23 @@ class AppButton(ctk.CTkButton):
         Інструкція (клас) що завантажує зображення, за вказаним ім'ям іконки у папці static/icon
         і додає до параметру => image у конструкторі CTkButton. Та створює кнопку у графічному інтерфейсі застосунку
         
-        #### Конструктор AppButton: ####
+        #### Конструктор AppButton: 
     
             - :mod:`ch_master`: батьківський елемент, до якого потрібно додати кнопку;
             - :mod:`icon_name`: назва зображення з папки static/icon;
             - :mod:`size`: розмір кнопки (в пікселах);
             - :mod:`**kwargs`: додаткові аргументи для кнопки (наприклад, command, font, relief).   
         
-        #### Властивості класу AppButton: ####
+        #### Властивості класу AppButton: 
             - :mod:`ICON_NAME`: назва зображення з папки static/icon;
             - :mod:`SIZE`: розмір кнопки (в пікселах);
             
-        #### Методи класу AppButton: ####
+        #### Методи класу AppButton: 
             - :mod:`load_image()`: визначає зображення кнопки з використанням PIL.Image,
               завантажує зображення з папки static/icon і зберігає його у вигляді CTkImage.
             - :mod:`load_image()`: повертає зображення кнопки або None, якщо зображення не знайдено.
     '''
-    def __init__(self, ch_master: object, icon_name: str, size: float,**kwargs):
+    def __init__(self, ch_master: object, icon_name: str, size: float, function: object,**kwargs):
         '''
             Інструкція (клас) що завантажує зображення, за вказаним ім'ям іконки у папці static/icon
             і додає до параметру => image у конструкторі CTkButton. Та створює кнопку у графічному інтерфейсі застосунку
@@ -74,6 +74,7 @@ class AppButton(ctk.CTkButton):
             height = int(size),
             fg_color= ch_master._fg_color,
             hover_color= '#373535',
+            command= function,
             **kwargs
         )
         

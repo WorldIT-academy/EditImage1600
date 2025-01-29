@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from ..json.read_json import read_json
-from ..tools import create_media_folder
+from ..tools import create_media_folder, get_file_path
 from .app_frames import App_Frame 
 from .app_button import AppButton
 
@@ -9,6 +9,7 @@ class App(ctk.CTk):
     def __init__(self):
         # Створюємо локальну змінну з типом даних словник, куди записуємо усі дані із файла config.json
         data = read_json(filename= 'config.json')
+
         
         ctk.CTk.__init__(self, fg_color = data["app_fg_color"])
         
@@ -88,7 +89,8 @@ class App(ctk.CTk):
         self.BUTTON_SEARCH = AppButton(
             ch_master = self.VERTICAL_MENU,
             icon_name = "explorer.png",
-            size = self.VERTICAL_MENU._current_width * 0.5
+            size = self.VERTICAL_MENU._current_width * 0.5,
+            function= lambda: get_file_path(parent= self)
         )
         self.BUTTON_SEARCH.place(x = 20, y = 20)
         
