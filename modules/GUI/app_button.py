@@ -17,6 +17,7 @@ import PIL.Image
 import customtkinter as ctk
 from os.path import abspath, join
 import colorama
+from ..tools.create_path import create_path
 
 colorama.init(autoreset= True)
 
@@ -41,7 +42,16 @@ class AppButton(ctk.CTkButton):
               завантажує зображення з папки static/icon і зберігає його у вигляді CTkImage.
             - :mod:`load_image()`: повертає зображення кнопки або None, якщо зображення не знайдено.
     '''
-    def __init__(self, ch_master: object, icon_name: str, size: float, function: object,**kwargs):
+
+    def __init__(
+            self, 
+            ch_master: object, 
+            icon_name: str= None, 
+            size: float = 0, 
+            function: object = None, 
+            text_button: str = "", 
+            **kwargs
+        ):
         '''
             Інструкція (клас) що завантажує зображення, за вказаним ім'ям іконки у папці static/icon
             і додає до параметру => image у конструкторі CTkButton. Та створює кнопку у графічному інтерфейсі застосунку
@@ -62,19 +72,25 @@ class AppButton(ctk.CTkButton):
                   завантажує зображення з папки static/icon і зберігає його у вигляді CTkImage.
                 - :mod:`load_image()`: повертає зображення кнопки або None, якщо зображення не знайдено.
         '''
+
         self.ICON_NAME = icon_name
         self.SIZE = (int(size), int(size))
+        # self.FONT = ctk.FontManager.load_font(font_path= create_path(filename= 'static/font/RobotoMono-Bold.ttf'))
         
         ctk.CTkButton.__init__(
             self, 
             master= ch_master,
             image= self.load_image(),
-            text = "",
+            text = text_button,
             width = int(size),
             height = int(size),
             fg_color= ch_master._fg_color,
             hover_color= '#373535',
             command= function,
+            corner_radius= 10,
+            
+            font= ctk.CTkFont(family= create_path(filename= 'static/font/Jomolhari-Regular.ttf'), size= 12),
+            
             **kwargs
         )
         
