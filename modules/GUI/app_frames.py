@@ -11,4 +11,6 @@ class App_Frame(ctk.CTkFrame):
             corner_radius = 0,
             **kwargs
         )
+        self.pack_propagate(False)
+        self.grid_propagate(False)
     

@@ -47,7 +47,7 @@ class AppButton(ctk.CTkButton):
             self, 
             ch_master: object, 
             icon_name: str= None, 
-            size: float = 0, 
+            size: float = 50, 
             function: object = None, 
             text_button: str = "", 
             **kwargs
@@ -88,9 +88,6 @@ class AppButton(ctk.CTkButton):
             hover_color= '#373535',
             command= function,
             corner_radius= 10,
-            
-            font= ctk.CTkFont(family= create_path(filename= 'static/font/Jomolhari-Regular.ttf'), size= 12),
-            
             **kwargs
         )
         
